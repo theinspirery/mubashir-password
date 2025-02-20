@@ -1,0 +1,24 @@
+@config "./tailwind.shadow.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+  Prevent inheriting styles (easyscraper#114)
+
+  !important is required to override inline styles (easyscraper#113)
+  */
+  :host {
+    all: initial !important;
+  }
+
+  /*
+  Copy `html, :host` and `body` styles from Tailwind base styles/preflight since they're reset by the rule above
+  */
+  :host {
+    @apply font-sans !important;
+    @apply text-base !important;
+  }
+}
